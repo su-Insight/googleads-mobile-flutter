@@ -70,6 +70,7 @@
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		41FDEFDDDE2EF7FC7A8F36B5 /* Pods-google_mobile_ads_exampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-google_mobile_ads_exampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-google_mobile_ads_exampleTests/Pods-google_mobile_ads_exampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		44F3DED22B745BEE004D7117 /* FLTMediationExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLTMediationExtras.h; path = ../../ios/Classes/FLTMediationExtras.h; sourceTree = "<group>"; };
 		49D53C9BFB8E1019F721B2A9 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,7 +204,7 @@
 				9EA7213525BB6464008D57E3 /* GoogleMobileAds.xcframework */,
 				B4B811D89E676EBD37E2E206 /* libPods-google_mobile_ads_exampleTests.a */,
 				A2AB4EE7241D0927BB957D65 /* Pods_Runner.framework */,
-				86606948223BE74D544C6A9E /* Pods_RunnerTests.framework */,
+        86606948223BE74D544C6A9E /* Pods_RunnerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,6 +243,7 @@
 				9EF4E6FC26392B230007E4FE /* FLTGoogleMobileAdsPlugin.m */,
 				9EF4E6F826392B230007E4FE /* FLTGoogleMobileAdsReaderWriter_Internal.h */,
 				9EF4E6FA26392B230007E4FE /* FLTGoogleMobileAdsReaderWriter_Internal.m */,
+				44F3DED22B745BEE004D7117 /* FLTMediationExtras.h */,
 				9EF4E6FF26392B230007E4FE /* FLTMobileAds_Internal.h */,
 				9EF4E6F626392B230007E4FE /* FLTMobileAds_Internal.m */,
 				9740EEB11CF90186004384FC /* Flutter */,
@@ -522,23 +524,23 @@
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin\n";
 		};
 		3C1065414114FFC1A695F30C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
+    	isa = PBXShellScriptBuildPhase;
+    	buildActionMask = 2147483647;
+    	files = (
+    	);
+    	inputPaths = (
+    		"${PODS_ROOT}/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-frameworks.sh",
+    		"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
+    	);
+    	name = "[CP] Embed Pods Frameworks";
+    	outputPaths = (
+    		"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
+    	);
+    	runOnlyForDeploymentPostprocessing = 0;
+    	shellPath = /bin/sh;
+    	shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-frameworks.sh\"\n";
+    	showEnvVarsInLog = 0;
+    };
 		49DB53F11513926D17758C29 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,29 +575,29 @@
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
 		};
 		D336851A73EADA4508A711A0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/webview_flutter_wkwebview/webview_flutter_wkwebview.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/webview_flutter_wkwebview.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
+    	isa = PBXShellScriptBuildPhase;
+    	buildActionMask = 2147483647;
+    	files = (
+   		);
+    	inputPaths = (
+    		"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
+    		"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+    		"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+  			"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+    		"${BUILT_PRODUCTS_DIR}/webview_flutter_wkwebview/webview_flutter_wkwebview.framework",
+    	);
+    	name = "[CP] Embed Pods Frameworks";
+    	outputPaths = (
+    		"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+    		"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+    		"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+    		"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/webview_flutter_wkwebview.framework",
+  		);
+    	runOnlyForDeploymentPostprocessing = 0;
+    	shellPath = /bin/sh;
+    	shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+    	showEnvVarsInLog = 0;
+    };
 		F0309092BBFE54C4077DB91D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

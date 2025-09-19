@@ -23,6 +23,7 @@ import 'package:flutter/widgets.dart';
 
 import 'ad_instance_manager.dart';
 import 'ad_listeners.dart';
+import 'mediation_extras.dart';
 import 'nativetemplates/native_template_style.dart';
 
 /// Error information about why an ad operation failed.
@@ -153,6 +154,7 @@ class AdapterResponseInfo {
   ///
   /// This is an empty string "" if the ad server did not populate this field.
   final String adSourceInstanceId;
+
   @override
   String toString() {
     return '$runtimeType(adapterClassName: $adapterClassName, '
@@ -190,15 +192,15 @@ class LoadAdError extends AdError {
 /// [AdRequest.Builder for Android](https://developers.google.com/android/reference/com/google/android/gms/ads/AdRequest.Builder).
 class AdRequest {
   /// Default constructor for [AdRequest].
-  const AdRequest({
-    this.keywords,
-    this.contentUrl,
-    this.neighboringContentUrls,
-    this.nonPersonalizedAds,
-    this.httpTimeoutMillis,
-    this.mediationExtrasIdentifier,
-    this.extras,
-  });
+  const AdRequest(
+      {this.keywords,
+      this.contentUrl,
+      this.neighboringContentUrls,
+      this.nonPersonalizedAds,
+      this.httpTimeoutMillis,
+      this.mediationExtrasIdentifier,
+      this.extras,
+      this.mediationExtras});
 
   /// Words or phrases describing the current user activity.
   final List<String>? keywords;
@@ -233,6 +235,10 @@ class AdRequest {
   /// Extras to pass to the AdMob adapter.
   final Map<String, String>? extras;
 
+  /// Extras to pass to the Mediations Adapter linked to the instance of the
+  /// [MediationExtras].
+  final List<MediationExtras>? mediationExtras;
+
   @override
   bool operator ==(Object other) {
     return other is AdRequest &&
@@ -242,7 +248,8 @@ class AdRequest {
         listEquals(neighboringContentUrls, other.neighboringContentUrls) &&
         httpTimeoutMillis == other.httpTimeoutMillis &&
         mediationExtrasIdentifier == other.mediationExtrasIdentifier &&
-        mapEquals<String, String>(extras, other.extras);
+        mapEquals<String, String>(extras, other.extras) &&
+        mediationExtras == other.mediationExtras;
   }
 }
 
@@ -260,6 +267,7 @@ class AdManagerAdRequest extends AdRequest {
     this.publisherProvidedId,
     String? mediationExtrasIdentifier,
     Map<String, String>? extras,
+    List<MediationExtras>? mediationExtras,
   }) : super(
           keywords: keywords,
           contentUrl: contentUrl,
@@ -268,6 +276,7 @@ class AdManagerAdRequest extends AdRequest {
           httpTimeoutMillis: httpTimeoutMillis,
           mediationExtrasIdentifier: mediationExtrasIdentifier,
           extras: extras,
+          mediationExtras: mediationExtras,
         );
 
   /// Key-value pairs used for custom targeting.
