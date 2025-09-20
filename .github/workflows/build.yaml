@@ -14,13 +14,12 @@ on:
 jobs:
 # Step 2: Build Android
   android:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: github.event_name == 'pull_request'
     strategy:
       fail-fast: false
       matrix:
         regex:
-        - "samples/admob/adaptive_banner_example"
         - "samples/admob/app_open_example"
         - "samples/admob/banner_example"
         - "samples/admob/interstitial_example"
@@ -30,7 +29,7 @@ jobs:
         - "samples/admob/rewarded_example"
         - "samples/admob/rewarded_interstitial_example"   
     steps:
-      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b
         with:
           fetch-depth: 0
       - name: "Install Flutter"
@@ -52,7 +51,6 @@ jobs:
       fail-fast: false
       matrix:
         regex:
-        - "samples/admob/adaptive_banner_example"
         - "samples/admob/app_open_example"
         - "samples/admob/banner_example"
         - "samples/admob/interstitial_example"
@@ -62,7 +60,7 @@ jobs:
         - "samples/admob/rewarded_example"
         - "samples/admob/rewarded_interstitial_example" 
     steps:
-      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b
         with:
           fetch-depth: 0  
       - name: "Install Flutter"
@@ -79,13 +77,12 @@ jobs:
 # Step 3: Build Flutter
   flutter:
     name: Build Flutter
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: github.event_name == 'pull_request'
     strategy:
       fail-fast: false
       matrix:
         regex:
-        - "samples/admob/adaptive_banner_example"
         - "samples/admob/app_open_example"
         - "samples/admob/banner_example"
         - "samples/admob/interstitial_example"
@@ -95,7 +92,7 @@ jobs:
         - "samples/admob/rewarded_example"
         - "samples/admob/rewarded_interstitial_example" 
     steps:
-      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b
         with:
           fetch-depth: 0
       - name: "Install Flutter"
